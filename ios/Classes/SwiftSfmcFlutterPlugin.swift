@@ -10,7 +10,9 @@ public class SwiftSfmcFlutterPlugin: NSObject, FlutterPlugin, MarketingCloudSDKU
     }
     
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-        
+        if #unavailable(iOS 13.0, *) {
+            return
+        }
         if call.method == "setupSFMC" {
             guard let args = call.arguments as? [String : Any] else {return}
             
